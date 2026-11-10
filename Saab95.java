@@ -67,12 +67,12 @@ public class Saab95 {
         currentSpeed = getCurrentSpeed() - speedFactor() * amount;
     }
     
-    // TODO fix this method according to assignment pm
+    // TODO fix this method according to assignment instructions
     public void gas(double amount) {
         incrementSpeed(amount);
     }
 
-    // TODO fix this method according to assignment pm
+    // TODO fix this method according to assignment instructions
     public void brake(double amount) {
         decrementSpeed(amount);
     }

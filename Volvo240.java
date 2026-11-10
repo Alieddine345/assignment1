@@ -56,12 +56,12 @@ public class Volvo240 {
         currentSpeed = getCurrentSpeed() - speedFactor() * amount;
     }
 
-    // TODO fix this method according to lab pm
+    // TODO fix this method according to assignment instructions
     public void gas(double amount) {
         incrementSpeed(amount);
     }
 
-    // TODO fix this method according to lab pm
+    // TODO fix this method according to assignment instructions
     public void brake(double amount) {
         decrementSpeed(amount);
     }
