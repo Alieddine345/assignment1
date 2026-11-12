@@ -111,5 +111,12 @@ public abstract class cars implements Movable {
         else if (Objects.equals(facingDirection, "West"))
             facingDirection = "Forward";
     }
+    public double getX() {
+        return location.getX();
+    }
+
+    public double getY() {
+        return location.getY();
+    }
 
 }

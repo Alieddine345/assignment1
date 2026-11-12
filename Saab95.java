@@ -3,7 +3,7 @@ import java.awt.*;
 
     private boolean turboOn;
 
-    private Saab95() {
+    public Saab95() {
         super(2,125,0,Color.red,
                 "Saab95",new Point(0,0),"Forward");
         boolean turboOn = false;
@@ -32,5 +32,7 @@ import java.awt.*;
     // TODO fix this method according to assignment instructions
     public void brake(double amount) {
         decrementSpeed(amount);
-    }
+
+     }
+
 }
