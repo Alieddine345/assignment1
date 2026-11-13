@@ -1,4 +1,5 @@
 import java.awt.*;
+import java.awt.geom.Point2D;
 import java.util.Objects;
 
 public abstract class cars implements Movable {
@@ -8,12 +9,12 @@ public abstract class cars implements Movable {
     private double currentSpeed;
     private Color color;
     private String modelName;
-    private Point location;
+    private Point2D.Double location;
     private String facingDirection;
 
     // Constructor
     public cars(int nrDoors, double enginePower, double currentSpeed,
-                Color color, String modelName, Point location, String facingDirection) {
+                Color color, String modelName, Point2D.Double location, String facingDirection) {
         this.nrDoors = nrDoors;
         this.enginePower = enginePower;
         this.currentSpeed = currentSpeed;

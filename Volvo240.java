@@ -1,4 +1,5 @@
 import java.awt.*;
+import java.awt.geom.Point2D;
 
 public class Volvo240 extends cars {
 
@@ -6,7 +7,7 @@ public class Volvo240 extends cars {
 
     public Volvo240() {
         super(4, 100, 0,
-                Color.black, "Volvo240", new Point(0,0), "Forward");
+                Color.black, "Volvo240", new Point2D.Double(0,0), "Forward");
     }
 
     @Override
@@ -28,9 +29,5 @@ public class Volvo240 extends cars {
 
     // task2
 
-    public void move() {}
 
-    public void turnLeft() {}
-
-    public void turnRight() {}
 }
