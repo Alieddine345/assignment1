@@ -53,12 +53,22 @@ public abstract class cars implements Movable {
 
     public abstract double speedFactor();
 
+    // Task 4: amount must be in [0,1] (this also rejects NaN)
+    private void checkAmount(double amount) {
+        if (!(amount >= 0 && amount <= 1))
+            throw new IllegalArgumentException("Amount must be in [0,1] but was " + amount);
+    }
+
     public void incrementSpeed(double amount) {
-        currentSpeed = getCurrentSpeed() + speedFactor() * amount;
+        checkAmount(amount);
+        // clamp so that currentSpeed never exceeds enginePower
+        currentSpeed = Math.min(getCurrentSpeed() + speedFactor() * amount, getEnginePower());
     }
 
     public void decrementSpeed(double amount) {
-        currentSpeed = getCurrentSpeed() - speedFactor() * amount;
+        checkAmount(amount);
+        // clamp so that currentSpeed never goes below 0
+        currentSpeed = Math.max(getCurrentSpeed() - speedFactor() * amount, 0);
     }
 
     //Task2
@@ -80,15 +90,15 @@ public abstract class cars implements Movable {
      */
 
     public void move() {
-    if (Objects.equals(facingDirection, "Forward"))
-        location.setLocation( location.x , location.getY() + currentSpeed );
-    else if (Objects.equals(facingDirection, "East"))
-        location.setLocation( location.getX() + currentSpeed , location.y );
-    else if (Objects.equals(facingDirection, "Back"))
-        location.setLocation( location.x , location.getY() - currentSpeed );
-    else if (Objects.equals(facingDirection, "West"))
-        location.setLocation( location.getX() - currentSpeed , location.y );
-        }
+        if (Objects.equals(facingDirection, "Forward"))
+            location.setLocation( location.x , location.getY() + currentSpeed );
+        else if (Objects.equals(facingDirection, "East"))
+            location.setLocation( location.getX() + currentSpeed , location.y );
+        else if (Objects.equals(facingDirection, "Back"))
+            location.setLocation( location.x , location.getY() - currentSpeed );
+        else if (Objects.equals(facingDirection, "West"))
+            location.setLocation( location.getX() - currentSpeed , location.y );
+    }
 
     public void turnLeft() {
         if (Objects.equals(facingDirection, "Forward"))
