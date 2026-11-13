@@ -1,11 +1,12 @@
 import java.awt.*;
+import java.awt.geom.Point2D;
     public class Saab95 extends cars  {
 
     private boolean turboOn;
 
     public Saab95() {
         super(2,125,0,Color.red,
-                "Saab95",new Point(0,0),"Forward");
+                "Saab95",new Point2D.Double(0,0),"Forward");
         boolean turboOn = false;
     }
 
