@@ -1,15 +1,13 @@
-import java.awt.*;
-import java.awt.geom.Point2D;
-    public class Saab95 extends cars  {
+import java.awt.Color;
+
+public class Saab95 extends Car {
 
     private boolean turboOn;
 
     public Saab95() {
-        super(2,125,0,Color.red,
-                "Saab95",new Point2D.Double(0,0),"Forward");
-        boolean turboOn = false;
+        super(2, 125, Color.red, "Saab95");
+        turboOn = false; // bug fix: previously declared a shadowing local variable
     }
-
 
     public void setTurboOn() {
         turboOn = true;
@@ -18,22 +16,11 @@ import java.awt.geom.Point2D;
     public void setTurboOff() {
         turboOn = false;
     }
-    
-    public double speedFactor() {
+
+    @Override
+    protected double speedFactor() {
         double turbo = 1;
-        if(turboOn) turbo = 1.3;
+        if (turboOn) turbo = 1.3;
         return getEnginePower() * 0.01 * turbo;
     }
-
-    // TODO fix this method according to assignment instructions
-    public void gas(double amount) {
-        incrementSpeed(amount);
-    }
-
-    // TODO fix this method according to assignment instructions
-    public void brake(double amount) {
-        decrementSpeed(amount);
-
-     }
-
 }
